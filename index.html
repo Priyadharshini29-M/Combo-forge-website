@@ -132,7 +132,7 @@
                 </a>
             </div>
             <div class="flex items-center gap-4">
-                <button
+                <button data-open-lead-form
                     class="px-6 py-2.5 bg-primary-container text-on-primary font-semibold rounded-full hover:bg-secondary hover:shadow-lg hover:shadow-secondary/20 transition-all active:scale-95 duration-300">
                     Install Now
                 </button>
@@ -157,7 +157,7 @@
                         that captivate customers with high-impact storytelling and frictionless flows.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-3">
-                        <button
+                        <button data-open-lead-form
                             class="px-6 py-3 bg-primary-container text-on-primary font-bold rounded-full text-base shadow-lg hover:shadow-primary-container/20 transition-all active:scale-95 group">
                             Install Now
                             <span
@@ -780,7 +780,7 @@
                     </p>
 
                     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <button
+                        <button data-open-lead-form
                             class="w-full sm:w-auto px-8 py-3 bg-white text-primary-container font-black rounded-xl hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-2 active:scale-95">
                             <span class="material-symbols-outlined text-xl">install_desktop</span>
                             Install Now
@@ -877,10 +877,76 @@
                     </div>
                     <div class="text-[10px] text-white/50 font-bold whitespace-nowrap">4.9/5 (2,100+ REVIEWS)</div>
                 </div>
-                <button
+                <button data-open-lead-form
                     class="bg-secondary text-white px-8 py-3 rounded-full font-bold text-sm hover:bg-secondary-fixed hover:text-on-secondary-fixed transition-all active:scale-95 shadow-lg whitespace-nowrap">
                     Install Now
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lead Capture Modal -->
+    <div id="lead-modal" class="lead-modal" aria-hidden="true" role="dialog" aria-labelledby="lead-modal-title">
+        <div class="lead-modal__backdrop" data-close-lead-form></div>
+        <div class="lead-modal__panel" role="document">
+            <button type="button" class="lead-modal__close" data-close-lead-form aria-label="Close form">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <h2 id="lead-modal-title" class="lead-modal__title">Get Started With ComboForge</h2>
+            <p class="lead-modal__subtitle">Share your details and we will contact you shortly.</p>
+
+            <form id="lead-form" class="lead-form" novalidate>
+                <div class="lead-form__grid">
+                    <label class="lead-form__field">
+                        <span>First Name</span>
+                        <input type="text" name="firstName" required autocomplete="given-name" />
+                    </label>
+                    <label class="lead-form__field">
+                        <span>Last Name</span>
+                        <input type="text" name="lastName" required autocomplete="family-name" />
+                    </label>
+                    <label class="lead-form__field">
+                        <span>Phone Number</span>
+                        <input type="tel" name="phone" required autocomplete="tel" pattern="[0-9+()\-\s]{7,20}" />
+                    </label>
+                    <label class="lead-form__field">
+                        <span>Company Name</span>
+                        <input type="text" name="companyName" required autocomplete="organization" />
+                    </label>
+                    <label class="lead-form__field">
+                        <span>Shop URL (Optional)</span>
+                        <input type="url" name="shopUrl" autocomplete="url" placeholder="https://yourstore.com" />
+                    </label>
+                    <label class="lead-form__field">
+                        <span>Email ID</span>
+                        <input type="email" name="email" required autocomplete="email" />
+                    </label>
+                </div>
+
+                <p id="lead-form-status" class="lead-form__status" aria-live="polite"></p>
+
+                <div class="lead-form__actions">
+                    <button type="button" class="lead-form__btn lead-form__btn--ghost" data-close-lead-form>Close</button>
+                    <button type="submit" id="lead-form-submit" class="lead-form__btn lead-form__btn--primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Thank You Modal -->
+    <div id="thank-you-modal" class="lead-modal" aria-hidden="true" role="dialog" aria-labelledby="thank-you-title">
+        <div class="lead-modal__backdrop" data-close-thank-you></div>
+        <div class="lead-modal__panel thank-you-modal__panel" role="document">
+            <button type="button" class="lead-modal__close" data-close-thank-you aria-label="Close thank you">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="thank-you-modal__icon">
+                <span class="material-symbols-outlined">check_circle</span>
+            </div>
+            <h2 id="thank-you-title" class="lead-modal__title">Thank You!</h2>
+            <p class="lead-modal__subtitle">Your details were submitted successfully. Our team will contact you shortly.</p>
+            <div class="lead-form__actions thank-you-modal__actions">
+                <button type="button" class="lead-form__btn lead-form__btn--primary" data-close-thank-you>Done</button>
             </div>
         </div>
     </div>
